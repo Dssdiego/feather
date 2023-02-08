@@ -2,3 +2,6 @@
 	path = thirdparty/entt
 	url = https://github.com/skypjack/entt.git
 	branch = v3.10.x
+[submodule "thirdparty/inih"]
+	path = thirdparty/inih
+	url = https://github.com/jtilly/inih.git
