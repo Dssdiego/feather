@@ -1,0 +1,4 @@
+[submodule "thirdparty/entt"]
+	path = thirdparty/entt
+	url = https://github.com/skypjack/entt.git
+	branch = v3.10.x
