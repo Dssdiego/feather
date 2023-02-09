@@ -5,3 +5,7 @@
 [submodule "thirdparty/inih"]
 	path = thirdparty/inih
 	url = https://github.com/jtilly/inih.git
+[submodule "thirdparty/glfw"]
+	path = thirdparty/glfw
+	url = https://github.com/glfw/glfw.git
+	branch = 3.3-stable
