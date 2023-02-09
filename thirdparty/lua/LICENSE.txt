@@ -1,0 +1,3 @@
+Github Repo: https://github.com/lua/lua.git
+License: https://www.lua.org/license.html
+Home Page: https://www.lua.org
