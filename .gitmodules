@@ -16,3 +16,7 @@
 	path = thirdparty/tileson
 	url = https://github.com/SSBMTonberry/tileson.git
 	branch = v1.3.0_dev
+[submodule "thirdparty/tinyobjloader"]
+	path = thirdparty/tinyobjloader
+	url = https://github.com/tinyobjloader/tinyobjloader.git
+	branch = release
