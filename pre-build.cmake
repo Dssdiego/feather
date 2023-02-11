@@ -9,4 +9,5 @@ file(COPY ${CMAKE_CURRENT_LIST_DIR}/src/engine/assets DESTINATION ${CMAKE_CURREN
 
 message("Copying config files to binary folder...")
 file(COPY ${CMAKE_CURRENT_LIST_DIR}/configs/feather.ini DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+file(COPY ${CMAKE_CURRENT_LIST_DIR}/configs/imgui.ini DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 file(COPY ${CMAKE_CURRENT_LIST_DIR}/configs/steam_appid.txt DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
