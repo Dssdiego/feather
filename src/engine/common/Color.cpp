@@ -32,6 +32,8 @@ const Color Color::Pink         = {1.0f,0.0f,1.0f,1.0f};
 const Color Color::Cyan         = {0.0f,1.0f,1.0f,1.0f};
 const Color Color::Background   = {0.47f, 0.42f, 0.96f, 1.0f};
 const Color Color::Sky   = {0.57f, 0.82f, 1.f, 1.0f};
+//const Color Color::EngineClear  = {0.33f, 0.33f, 0.33f, 1.0f};
+const Color Color::EngineClear  = {0.25f, 0.14f, 0.2f, 1.0f};
 
 VkClearColorValue Color::GetAsVulkanClear(Color color)
 {

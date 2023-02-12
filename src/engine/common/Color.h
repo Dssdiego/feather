@@ -40,6 +40,7 @@ public:
     static const Color Pink;
     static const Color Cyan;
     static const Color Background;
+    static const Color EngineClear;
 
     // Specials
     static const Color Sky;
