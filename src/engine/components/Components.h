@@ -33,14 +33,6 @@ struct Identity
 	std::string name = "";
 };
 
-// tag for the cards
-struct CardComponent
-{
-	CardValue value = CardValue::Mercury;
-	bool selected = false;
-	//std::vector<entt::entity> entities{};
-};
-
 // [future use] empty tag for entities that are controlled by the player with the joystick
 struct JoystickComponent { };
 

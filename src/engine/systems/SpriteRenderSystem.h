@@ -2,8 +2,8 @@
 // Created by Diego S. Seabra on 17/08/22.
 //
 
-#ifndef FEATHER_SPRITERENDERSYSTEM_H
-#define FEATHER_SPRITERENDERSYSTEM_H
+#ifndef FEATHER_SPRITE_RENDER_SYSTEM_H
+#define FEATHER_SPRITE_RENDER_SYSTEM_H
 
 #include <iostream>
 #include <vector>
@@ -44,4 +44,4 @@ namespace Feather
 	};
 }
 
-#endif //FEATHER_SPRITERENDERSYSTEM_H
+#endif //FEATHER_SPRITE_RENDER_SYSTEM_H

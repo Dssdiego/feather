@@ -2,8 +2,8 @@
 // Created by Diego S. Seabra on 24/01/23
 //
 
-#ifndef FEATHER_AREASYSTEM_H
-#define FEATHER_AREASYSTEM_H
+#ifndef FEATHER_AREA_SYSTEM_H
+#define FEATHER_AREA_SYSTEM_H
 
 #include "../world/World.h"
 
@@ -27,4 +27,4 @@ namespace Feather
 	};
 }
 
-#endif //FEATHER_AREASYSTEM_H
+#endif //FEATHER_AREA_SYSTEM_H

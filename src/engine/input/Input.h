@@ -9,7 +9,6 @@
 #include <cstdint>
 #include <GLFW/glfw3.h>
 
-#include "../profiling/Profiler.h"
 #include "../profiling/Logger.h"
 #include "../rendering/Window.h"
 #include "../rendering/Camera.h"

@@ -10,7 +10,6 @@ class Identity;
 class TransformComponent;
 class AreaComponent;
 class AtlasSpriteRenderer;
-class CardComponent;
 class Draggable;
 
 #include <entt/entt.hpp>
@@ -28,7 +27,6 @@ namespace Feather
 		void DrawAreaComponent(AreaComponent& area);
 		void DrawDraggableComponent(Draggable& draggable);
 		void DrawRendererComponent(AtlasSpriteRenderer& renderer);
-		void DrawCardComponent(CardComponent& card);
 
 		void DrawComponentStart();
 		void DrawComponentEnd();

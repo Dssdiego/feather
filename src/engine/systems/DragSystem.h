@@ -2,8 +2,8 @@
 // Created by Diego S. Seabra on 24/01/23
 //
 
-#ifndef FEATHER_DRAGSYSTEM_H
-#define FEATHER_DRAGSYSTEM_H
+#ifndef FEATHER_DRAG_SYSTEM_H
+#define FEATHER_DRAG_SYSTEM_H
 
 #include "../world/World.h"
 #include "../input/Input.h"
@@ -27,4 +27,4 @@ namespace Feather
 	};
 }
 
-#endif //FEATHER_DRAGSYSTEM_H
+#endif //FEATHER_DRAG_SYSTEM_H

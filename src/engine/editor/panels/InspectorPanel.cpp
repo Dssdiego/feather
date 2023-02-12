@@ -37,7 +37,6 @@ namespace Feather
 			auto renderer = registry->try_get<AtlasSpriteRenderer>(selectedEntity);
 			auto area = registry->try_get<AreaComponent>(selectedEntity);
 			auto draggable = registry->try_get<Draggable>(selectedEntity);
-			auto card = registry->try_get<CardComponent>(selectedEntity);
 
 			if (identity != nullptr)
 				DrawIdentityComponent(*identity);
@@ -49,8 +48,6 @@ namespace Feather
 				DrawAreaComponent(*area);
 			if (draggable != nullptr)
 				DrawDraggableComponent(*draggable);
-			if (card != nullptr)
-				DrawCardComponent(*card);
 
 			if (EditorDraw::AlignedButton(ICON_FA_CIRCLE_PLUS " Add Component"))
 				ImGui::OpenPopup("AddComponent");
@@ -174,20 +171,6 @@ namespace Feather
 		DrawComponentEnd();
 	}
 
-	void InspectorPanel::DrawCardComponent(CardComponent& card)
-	{
-		DrawComponentStart();
-
-		if (ImGui::TreeNode(ICON_FA_HEART " Card Component"))
-		{
-			std::string valueStr = "Value: " + std::to_string(card.value);
-			ImGui::Text(valueStr.c_str());
-
-			ImGui::TreePop();
-		}
-		DrawComponentEnd();
-	}
-
 	void InspectorPanel::DrawComponentStart()
 	{
 		ImGui::Spacing();
@@ -208,7 +191,6 @@ namespace Feather
 			DisplayAddComponentEntry<Identity>("Identity");
 			DisplayAddComponentEntry<TransformComponent>("Transform");
 			DisplayAddComponentEntry<AtlasSpriteRenderer>("Renderer");
-			DisplayAddComponentEntry<CardComponent>("Card");
 			DisplayAddComponentEntry<AreaComponent>("Area");
 			DisplayAddComponentEntry<Draggable>("Draggable");
 
