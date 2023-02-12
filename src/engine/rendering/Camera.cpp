@@ -19,7 +19,7 @@ namespace Feather
 
 		// Setting camera properties
 		// using ortographic projection (updating every frame so it matches the window width and height)
-		Camera::SetWorldPosition(glm::vec3(3.5f, 2.f, -2.0f));
+		Camera::SetWorldPosition(glm::vec3(1.5f, 0.5f, -2.0f));
 		//    Camera::SetWorldDirection(glm::vec3(0.f, 0.f, 1.f));
 		Camera::SetViewDirection(Camera::GetWorldPosition(), Camera::GetWorldDirection()); // camera at "origin", pointing "forward" at the Z axis
 	}

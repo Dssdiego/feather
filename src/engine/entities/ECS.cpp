@@ -54,8 +54,8 @@ namespace Feather
 		{
 			Color::White,
 			"sprite",
-			"platformer",
-			4,
+			"engine",
+			0,
 			true
 		};
 
