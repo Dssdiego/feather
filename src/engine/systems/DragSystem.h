@@ -5,7 +5,6 @@
 #ifndef FEATHER_DRAG_SYSTEM_H
 #define FEATHER_DRAG_SYSTEM_H
 
-#include "../world/World.h"
 #include "../input/Input.h"
 #include "../systems/AreaSystem.h"
 

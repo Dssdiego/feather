@@ -41,7 +41,7 @@ namespace Feather
 
 	void Mouse::LoadCursorsFromYAML()
 	{
-		YAML::Node cursorYAML = YAML::LoadFile("assets/cursors.yaml");
+		YAML::Node cursorYAML = YAML::LoadFile("configs/cursors.yaml");
 		auto curs = cursorYAML["cursors"];
 
 		for (const auto& c : curs)

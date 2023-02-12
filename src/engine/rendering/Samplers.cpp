@@ -32,7 +32,7 @@ void Samplers::Shutdown()
 
 void Samplers::ReadSamplersFromYAML()
 {
-    YAML::Node samplerYAML = YAML::LoadFile("assets/samplers.yaml");
+    YAML::Node samplerYAML = YAML::LoadFile("configs/samplers.yaml");
     auto samps = samplerYAML["samplers"];
 
     for (const auto& s : samps)

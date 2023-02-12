@@ -5,8 +5,6 @@
 #ifndef FEATHER_AREA_SYSTEM_H
 #define FEATHER_AREA_SYSTEM_H
 
-#include "../world/World.h"
-
 // FIXME: all of this is required to be included before including the "Components.h" header
 #include <glm/glm.hpp>
 #include "../rendering/shapes/Shape.h"

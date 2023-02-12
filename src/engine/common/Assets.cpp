@@ -87,7 +87,7 @@ void Assets::AddTexture(const std::string &texName, const std::string &texPath, 
 
 void Assets::ReadTexturesFromYAML()
 {
-    YAML::Node texYAML = YAML::LoadFile("assets/textures.yaml");
+    YAML::Node texYAML = YAML::LoadFile("configs/textures.yaml");
     auto texs = texYAML["textures"];
 
     for (const auto& t : texs)

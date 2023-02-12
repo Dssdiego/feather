@@ -7,7 +7,6 @@
 #include "../rendering/Camera.h"
 #include "../rendering/SpriteBatcher.h"
 #include "../common/Assets.h"
-#include "../world/World.h"
 #include <Tracy.hpp>
 #include "../entities/ECS.h"
 

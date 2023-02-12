@@ -20,8 +20,11 @@
 
 namespace Feather
 {
-	// doing nothing for now, but keeping the same structure as the other engine systems
-	void ECS::Init() { }
+	void ECS::Init() 
+	{
+		// start with an empty entity
+		ECS::Create();
+	}
 
 	void ECS::Shutdown()
 	{
