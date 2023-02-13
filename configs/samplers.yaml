@@ -1,0 +1,19 @@
+docs:
+- https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFilter.html
+- https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSamplerAddressMode.html
+- https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSamplerMipmapMode.html
+
+samplers:
+  - name: pixel_art
+    filter: 0 # nearest
+    address_mode: 0 # repeat
+    mipmap_mode: 1 # linear
+    anisotropy: On
+    normalizedCoordinates: On
+
+  - name: linear
+    filter: 1 # linear
+    address_mode: 2 # clamp to edge
+    mipmap_mode: 1 # linear
+    anisotropy: On
+    normalizedCoordinates: On

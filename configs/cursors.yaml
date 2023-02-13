@@ -1,0 +1,10 @@
+cursors:
+  - name: arrow
+    mode: 0
+    image: assets/cursors/cursor.png
+    hotspot: [ 0.0, 0.0 ]
+  
+  # - name: grabbing
+  #   mode: 1
+  #   image: assets/cursors/cursor_hand_closed.png
+  #   hotspot: [ 0.0, 0.0 ]
