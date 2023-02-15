@@ -6,7 +6,7 @@
 #include "../rendering/ImGuiRenderer.h"
 #include "../core/Time.h"
 #include "../animation/SpriteAnimator.h"
-#include "../sdks/Steam.h"
+//#include "../sdks/Steam.h"
 #include "../networking/NetClient.h"
 #include "../rendering/vulkan/VulkanPipeline.h"
 #include "../input/Mouse.h"
@@ -27,7 +27,7 @@ namespace Feather
 		Logger::Init();
 		Window::Init(pConfig);
 		Mouse::Init();
-		AudioEngine::Init();
+		//AudioEngine::Init();
 		Input::Init();
 		VulkanEngine::Init();
 		Editor::Init();
@@ -76,7 +76,7 @@ namespace Feather
 			VulkanPipeline::Update();
 			Camera::Update();
 			Input::Update();
-			AudioEngine::Update();
+			//AudioEngine::Update();
 
 			Draw();
 
@@ -117,7 +117,7 @@ namespace Feather
 		ECS::Shutdown();
 		//    Renderer::Shutdown();
 		Input::Shutdown();
-		AudioEngine::Shutdown();
+		//AudioEngine::Shutdown();
 		Mouse::Shutdown();
 		Window::Shutdown();
 	}

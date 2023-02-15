@@ -8,12 +8,12 @@
 #include <Tracy.hpp>
 #include <string>
 #include "../common/structs.h"
-#include "../audio/AudioEngine.h"
+//#include "../audio/AudioEngine.h"
 #include "../input/Input.h"
 #include "../rendering/Window.h"
 #include "../rendering/vulkan/VulkanEngine.h"
 #include "../profiling/Logger.h"
-#include "../sdks/GeforceNow.h"
+//#include "../sdks/GeforceNow.h"
 
 namespace Feather
 {
