@@ -22,56 +22,8 @@ add_subdirectory(server)
 # Vulkan
 find_package(Vulkan REQUIRED)
 
-# OpenGL
-find_package(OpenGL REQUIRED)
-
 # FMOD
 set(FMOD_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/thirdparty/fmod/inc")
-
-if(WIN32)
-    set(FMOD_LIBRARY
-        "${CMAKE_SOURCE_DIR}/thirdparty/fmod/lib/x64/fmod_vc.lib" # for production use
-        "${CMAKE_SOURCE_DIR}/thirdparty/fmod/lib/x64/fmodstudio_vc.lib" # for production use
-        #            "${CMAKE_SOURCE_DIR}/thirdparty/fmod/lib/x64/fmodstudioL_vc.lib" # for debug use
-    )
-    file(COPY
-        "${CMAKE_SOURCE_DIR}/thirdparty/fmod/lib/x64/fmod.dll" # for production use
-        "${CMAKE_SOURCE_DIR}/thirdparty/fmod/lib/x64/fmodstudio.dll" # for production use
-        #            "${CMAKE_SOURCE_DIR}/thirdparty/fmod/lib/x64/fmodstudioL.dll" # for debug use
-        DESTINATION ${CMAKE_BINARY_DIR})
-elseif(APPLE)
-    set(FMOD_LIBRARY
-            "${CMAKE_SOURCE_DIR}/thirdparty/fmod/lib/x64/libfmod.dylib" # for production use
-            "${CMAKE_SOURCE_DIR}/thirdparty/fmod/lib/x64/libfmodstudio.dylib" # for production use
-            )
-else()
-    set(FMOD_LIBRARY
-            "${CMAKE_SOURCE_DIR}/thirdparty/fmod/lib/x64/libfmod.so" # for production use
-            "${CMAKE_SOURCE_DIR}/thirdparty/fmod/lib/x64/libfmodstudio.so" # for production use
-            #            "${CMAKE_SOURCE_DIR}/thirdparty/fmod/lib/x64/fmodstudioL_vc.lib" # for debug use
-            )
-endif()
-
-# Geforce NOW
-set(GEFORCE_NOW_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/thirdparty/geforce_now/include")
-#set(GEFORCE_NOW_LIBRARY
-#        "${CMAKE_SOURCE_DIR}/thirdparty/geforce_now/lib/x64/GfnRuntimeSdk.dll"
-#        )
-file(COPY
-        "${CMAKE_SOURCE_DIR}/thirdparty/geforce_now/lib/x64/GfnRuntimeSdk.dll"
-        DESTINATION ${CMAKE_BINARY_DIR})
-#add_library(GEFORCE_NOW_LIBRARY SHARED thirdparty/geforce_now/lib/x64/GfnRuntimeSdk.dll)
-#set_target_properties(GEFORCE_NOW_LIBRARY PROPERTIES LINKER_LANGUAGE C)
-
-# Steam SDK
-set(STEAM_SDK_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/thirdparty/steam/inc")
-if(WIN32)
-    set(STEAM_SDK_LIBRARY "${CMAKE_SOURCE_DIR}/thirdparty/steam/lib/win64/steam_api64.lib" )
-    file(COPY "${CMAKE_SOURCE_DIR}/thirdparty/steam/lib/win64/steam_api64.dll" DESTINATION ${CMAKE_BINARY_DIR})
-elseif(APPLE)
-    set(STEAM_SDK_LIBRARY "${CMAKE_SOURCE_DIR}/thirdparty/steam/lib/osx/libsteam_api.dylib" )
-    file(COPY "${CMAKE_SOURCE_DIR}/thirdparty/steam/lib/osx/libsteam_api.dylib" DESTINATION ${CMAKE_BINARY_DIR})
-endif()
 
 # YAML-CPP
 set(YAML_CPP_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/thirdparty/yaml-cpp/inc")
@@ -88,10 +40,6 @@ endif()
 message("Libraries:")
 message(VULKAN_INCLUDE_DIRS: ${Vulkan_INCLUDE_DIRS})
 message(VULKAN_LIB: ${Vulkan_LIBRARIES})
-message(OPENGL_LIBRARIES: ${OPENGL_LIBRARIES})
-message(FMOD_LIBRARY: ${FMOD_LIBRARY})
-message(GEFORCE_NOW_LIBRARY: ${GEFORCE_NOW_LIBRARY})
-message(STEAM_SDK_LIBRARY: ${STEAM_SDK_LIBRARY})
 message(YAML_CPP_LIBRARY: ${YAML_CPP_LIBRARY})
 
 # include directories
@@ -100,16 +48,19 @@ include_directories(
         thirdparty/entt/single_include
         thirdparty/glm
         thirdparty/json/single_include
-        ${FMOD_INCLUDE_DIR}
-        ${GEFORCE_NOW_INCLUDE_DIR}
-        ${STEAM_SDK_INCLUDE_DIR}
         ${YAML_CPP_INCLUDE_DIR}
 )
+
+# which folder to use for the game code
+set(GAME_FOLDER "../feather_demo")
 
 # load source and header files
 file(GLOB_RECURSE SOURCE_FILES
         "src/*.h"
-        "src/*.cpp")
+        "src/*.cpp"
+        "${GAME_FOLDER}/src/*.h"
+        "${GAME_FOLDER}/src/*.cpp"
+)
 
 # Package project with CPACK
 SET(CPACK_GENERATOR "ZIP")
@@ -145,13 +96,9 @@ if(WIN32)
             ${PROJECT_NAME}
             glfw
             Vulkan::Vulkan
-            d3d12
-            OpenGL::GL
             lua_lib
             imgui
             TracyClient
-            ${FMOD_LIBRARY}
-            ${STEAM_SDK_LIBRARY}
             yojimbo
             ${CMAKE_SOURCE_DIR}/thirdparty/yojimbo/mbedtls.lib
             ${CMAKE_SOURCE_DIR}/thirdparty/yojimbo/mbedx509.lib
@@ -164,12 +111,9 @@ else()
             ${PROJECT_NAME}
             glfw
             Vulkan::Vulkan
-            OpenGL::GL
             lua_lib
             imgui
             TracyClient
-            ${FMOD_LIBRARY}
-            ${STEAM_SDK_LIBRARY}
     )
 endif()
 
