@@ -22,9 +22,6 @@ add_subdirectory(server)
 # Vulkan
 find_package(Vulkan REQUIRED)
 
-# FMOD
-set(FMOD_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/thirdparty/fmod/inc")
-
 # YAML-CPP
 set(YAML_CPP_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/thirdparty/yaml-cpp/inc")
 if(WIN32)
@@ -51,8 +48,8 @@ include_directories(
         ${YAML_CPP_INCLUDE_DIR}
 )
 
-# which folder to use for the game code
-set(GAME_FOLDER "../feather_demo")
+# which folder to use for the game (code/assets/etc)
+set(GAME_FOLDER "game")
 
 # load source and header files
 file(GLOB_RECURSE SOURCE_FILES

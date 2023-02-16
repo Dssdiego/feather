@@ -27,3 +27,6 @@
 	path = thirdparty/json
 	url = https://github.com/nlohmann/json.git
 	branch = master
+[submodule "game"]
+	path = game
+	url = https://github.com/Dssdiego/feather_demo.git
