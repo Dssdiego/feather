@@ -6,10 +6,6 @@
 
 #include "../../src/engine/components/Components.h"
 
-using namespace Feather;
-
-//#include <iostream>
-
 void GravitySystem::Update()
 {
 	auto view = ECS::GetRegistry()->view<const GravityComponent, TransformComponent>();
