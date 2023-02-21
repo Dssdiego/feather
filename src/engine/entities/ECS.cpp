@@ -18,6 +18,9 @@
 #include "../systems/AreaSystem.h"
 #include "../systems/DragSystem.h"
 
+// game systems
+#include "../../../game/src/systems/GameSystems.h"
+
 namespace Feather
 {
 	void ECS::Init() 
@@ -84,5 +87,7 @@ namespace Feather
 	{
 		AreaSystem::Update();
 		DragSystem::Update();
+
+		GameSystems::Update();
 	}
 }
