@@ -6,12 +6,12 @@
 #define FEATHER_INSPECTOR_PANEL_H
 
 // ecs components
-class Identity;
+class IdentityComponent;
 class TransformComponent;
 class AreaComponent;
-class AtlasSpriteRenderer;
-class Draggable;
-class Gravity;
+class SpriteRendererComponent;
+class DraggableComponent;
+class GravityComponent;
 
 #include <entt/entt.hpp>
 
@@ -23,12 +23,12 @@ namespace Feather
 		void Draw(entt::entity selectedEntity);
 
 	private:
-		void DrawIdentityComponent(Identity& identity);
+		void DrawIdentityComponent(IdentityComponent& identity);
 		void DrawTransformComponent(TransformComponent& transform);
 		void DrawAreaComponent(AreaComponent& area);
-		void DrawDraggableComponent(Draggable& draggable);
-		void DrawRendererComponent(AtlasSpriteRenderer& renderer);
-		void DrawGravityComponent(Gravity& gravity);
+		void DrawDraggableComponent(DraggableComponent& draggable);
+		void DrawRendererComponent(SpriteRendererComponent& renderer);
+		void DrawGravityComponent(GravityComponent& gravity);
 
 		void DrawComponentStart();
 		void DrawComponentEnd();

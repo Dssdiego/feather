@@ -8,6 +8,13 @@
 // REVIEW: Surround components with Feather namespace?
 using namespace Feather;
 
+// entt tag to identity objects in the game
+struct IdentityComponent
+{
+	std::string id = "";
+	std::string name = "";
+};
+
 struct TransformComponent
 {
 	glm::vec3 position{ 0.f, 0.f, 0.f };
@@ -17,7 +24,7 @@ struct TransformComponent
 };
 
 // entt tag for atlas sprites
-struct AtlasSpriteRenderer
+struct SpriteRendererComponent
 {
 	Color color = Color::White;
 	std::string pipeline = "";
@@ -26,18 +33,17 @@ struct AtlasSpriteRenderer
 	bool visible = true;
 };
 
-// entt tag to identity objects in the game
-struct Identity
-{
-	std::string id = "";
-	std::string name = "";
-};
 
 // [future use] empty tag for entities that are controlled by the player with the joystick
-struct JoystickComponent { };
+struct JoystickComponent
+{
+};
 
 // [future use] empty tag for entities that are controlled by an AI (like in a cutscene, for example)
 struct AIComponent { };
+
+// [future use] empty tag for entities that are controlled by a cutscene
+struct CutsceneComponent { };
 
 // entt tag for area component
 struct AreaComponent
@@ -47,16 +53,21 @@ struct AreaComponent
 };
 
 // entt tag for draggable objects
-struct Draggable
+struct DraggableComponent
 {
 	bool dragging = false;
 	glm::vec3 offset = { 0.f, 0.f, 0.f };
 };
 
 // entt tag for object with gravity
-struct Gravity 
+struct GravityComponent 
 {
 	float value = 1.f;
+};
+
+struct CollisionComponent
+{
+	float size = 1.f;
 };
 
 //

@@ -47,13 +47,13 @@ namespace Feather
 		auto randId = rand();
 		std::string entityName = "Empty Entity";
 
-		Identity identity =
+		IdentityComponent identity =
 		{
 			std::to_string(randId),
 			entityName
 		};
 
-		AtlasSpriteRenderer renderer =
+		SpriteRendererComponent renderer =
 		{
 			Color::White,
 			"sprite",
@@ -64,9 +64,9 @@ namespace Feather
 
 		// TODO: When creating an entity, automatically add the id tag/component to it!
 		auto newEntity = registry.create();
-		AddComponent<Identity>(newEntity, identity);
+		AddComponent<IdentityComponent>(newEntity, identity);
 		AddComponent<TransformComponent>(newEntity, transform);
-		AddComponent<AtlasSpriteRenderer>(newEntity, renderer);
+		AddComponent<SpriteRendererComponent>(newEntity, renderer);
 		return newEntity;
 	}
 

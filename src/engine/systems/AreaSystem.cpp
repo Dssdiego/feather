@@ -16,7 +16,7 @@ namespace Feather
 		view.each([](const auto& transform, auto& area)
 			{
 				area.min = transform.position - (0.5f * transform.scale);
-		area.max = transform.position + (0.5f * transform.scale);
+				area.max = transform.position + (0.5f * transform.scale);
 			});
 
 		// FIXME: Area System doesn't work on entities that are rotated!

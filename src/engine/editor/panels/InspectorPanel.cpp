@@ -32,12 +32,12 @@ namespace Feather
 
 			auto registry = ECS::GetRegistry();
 
-			auto identity = registry->try_get<Identity>(selectedEntity);
+			auto identity = registry->try_get<IdentityComponent>(selectedEntity);
 			auto transform = registry->try_get<TransformComponent>(selectedEntity);
-			auto renderer = registry->try_get<AtlasSpriteRenderer>(selectedEntity);
+			auto renderer = registry->try_get<SpriteRendererComponent>(selectedEntity);
 			auto area = registry->try_get<AreaComponent>(selectedEntity);
-			auto draggable = registry->try_get<Draggable>(selectedEntity);
-			auto gravity = registry->try_get<Gravity>(selectedEntity);
+			auto draggable = registry->try_get<DraggableComponent>(selectedEntity);
+			auto gravity = registry->try_get<GravityComponent>(selectedEntity);
 
 			if (identity != nullptr)
 				DrawIdentityComponent(*identity);
@@ -67,7 +67,7 @@ namespace Feather
 		}
 	}
 
-	void InspectorPanel::DrawIdentityComponent(Identity& identity)
+	void InspectorPanel::DrawIdentityComponent(IdentityComponent& identity)
 	{
 		DrawComponentStart();
 
@@ -131,13 +131,13 @@ namespace Feather
 		DrawComponentEnd();
 	}
 
-	void InspectorPanel::DrawDraggableComponent(Draggable& draggable)
+	void InspectorPanel::DrawDraggableComponent(DraggableComponent& draggable)
 	{
 		DrawComponentStart();
 
 		auto opened = ImGui::TreeNode(ICON_FA_HAND_BACK_FIST " Draggable Component");
 
-		DrawOptionsPopup<Draggable>(draggable);
+		DrawOptionsPopup<DraggableComponent>(draggable);
 
 		if (opened)
 		{
@@ -150,13 +150,13 @@ namespace Feather
 		DrawComponentEnd();
 	}
 
-	void InspectorPanel::DrawRendererComponent(AtlasSpriteRenderer& renderer)
+	void InspectorPanel::DrawRendererComponent(SpriteRendererComponent& renderer)
 	{
 		DrawComponentStart();
 
 		auto opened = ImGui::TreeNode(ICON_FA_IMAGE " Renderer Component");
 
-		DrawOptionsPopup<AtlasSpriteRenderer>(renderer);
+		DrawOptionsPopup<SpriteRendererComponent>(renderer);
 
 		if (opened)
 		{
@@ -174,13 +174,13 @@ namespace Feather
 		DrawComponentEnd();
 	}
 
-	void InspectorPanel::DrawGravityComponent(Gravity& gravity)
+	void InspectorPanel::DrawGravityComponent(GravityComponent& gravity)
 	{
 		DrawComponentStart();
 
 		auto opened = ImGui::TreeNode(ICON_FA_HAND_BACK_FIST " Gravity Component");
 
-		DrawOptionsPopup<Gravity>(gravity);
+		DrawOptionsPopup<GravityComponent>(gravity);
 
 		if (opened)
 		{
@@ -211,12 +211,12 @@ namespace Feather
 	{
 		if (ImGui::BeginPopup("AddComponent"))
 		{
-			DisplayAddComponentEntry<Identity>("Identity");
+			DisplayAddComponentEntry<IdentityComponent>("Identity");
 			DisplayAddComponentEntry<TransformComponent>("Transform");
-			DisplayAddComponentEntry<AtlasSpriteRenderer>("Renderer");
+			DisplayAddComponentEntry<SpriteRendererComponent>("Renderer");
 			DisplayAddComponentEntry<AreaComponent>("Area");
-			DisplayAddComponentEntry<Draggable>("Draggable");
-			DisplayAddComponentEntry<Gravity>("Gravity");
+			DisplayAddComponentEntry<DraggableComponent>("Draggable");
+			DisplayAddComponentEntry<GravityComponent>("Gravity");
 
 			// can't add empty components! entt won't allow it!
 			//DisplayAddComponentEntry<JoystickComponent>("Joystick");

@@ -96,7 +96,7 @@ namespace Feather
 	//    });
 
 		// for each tile sprite entity
-		auto solView = registry->view<const TransformComponent, AtlasSpriteRenderer>();
+		auto solView = registry->view<const TransformComponent, SpriteRendererComponent>();
 		solView.each([this, &ubo](const auto& transform, auto& renderer) {
 			auto texSet = Assets::GetTextureSet(renderer.textureName);
 

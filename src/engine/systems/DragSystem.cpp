@@ -13,7 +13,7 @@ namespace Feather
 		auto mousePositionScreen = Input::GetMouseWorldPosition();
 		glm::vec3 mousePos = glm::vec3(mousePositionScreen.x, mousePositionScreen.y, 0.f);
 
-		auto view = ECS::GetRegistry()->view<const Identity, AreaComponent, TransformComponent, Draggable>();
+		auto view = ECS::GetRegistry()->view<const IdentityComponent, AreaComponent, TransformComponent, DraggableComponent>();
 		view.each([mousePos](const auto& identity, auto& area, auto& transform, auto& draggable)
 			{
 				auto inside = AreaSystem::IsInside(area, mousePos);

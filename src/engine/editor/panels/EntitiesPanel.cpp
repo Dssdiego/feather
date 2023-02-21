@@ -25,7 +25,7 @@ namespace Feather
 		ImGui::Begin(ICON_FA_GLOBE " Entities");
 
 		auto registry = ECS::GetRegistry();
-		auto view = registry->view<const Identity, TransformComponent>();
+		auto view = registry->view<const IdentityComponent, TransformComponent>();
 
 		//selected.resize(view.size_hint());
 
