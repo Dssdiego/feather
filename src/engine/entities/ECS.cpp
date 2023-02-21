@@ -10,6 +10,7 @@
 // systems
 #include "../systems/AreaSystem.h"
 #include "../systems/DragSystem.h"
+#include "../systems/GravitySystem.h"
 
 // game systems
 #include "../../../game/src/systems/GameSystems.h"
@@ -80,6 +81,7 @@ namespace Feather
 	{
 		AreaSystem::Update();
 		DragSystem::Update();
+		GravitySystem::Update();
 
 		GameSystems::Update();
 	}
