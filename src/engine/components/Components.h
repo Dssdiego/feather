@@ -46,11 +46,17 @@ struct AreaComponent
 	glm::vec3 max = { 0.f, 0.f, 0.f };
 };
 
-// empty entt tag for draggable objects
+// entt tag for draggable objects
 struct Draggable
 {
 	bool dragging = false;
 	glm::vec3 offset = { 0.f, 0.f, 0.f };
+};
+
+// entt tag for object with gravity
+struct Gravity 
+{
+	float value = 1.f;
 };
 
 //

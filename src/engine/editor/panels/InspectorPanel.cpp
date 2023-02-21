@@ -37,6 +37,7 @@ namespace Feather
 			auto renderer = registry->try_get<AtlasSpriteRenderer>(selectedEntity);
 			auto area = registry->try_get<AreaComponent>(selectedEntity);
 			auto draggable = registry->try_get<Draggable>(selectedEntity);
+			auto gravity = registry->try_get<Gravity>(selectedEntity);
 
 			if (identity != nullptr)
 				DrawIdentityComponent(*identity);
@@ -48,6 +49,8 @@ namespace Feather
 				DrawAreaComponent(*area);
 			if (draggable != nullptr)
 				DrawDraggableComponent(*draggable);
+			if (gravity != nullptr)
+				DrawGravityComponent(*gravity);
 
 			if (EditorDraw::AlignedButton(ICON_FA_CIRCLE_PLUS " Add Component"))
 				ImGui::OpenPopup("AddComponent");
@@ -171,6 +174,26 @@ namespace Feather
 		DrawComponentEnd();
 	}
 
+	void InspectorPanel::DrawGravityComponent(Gravity& gravity)
+	{
+		DrawComponentStart();
+
+		auto opened = ImGui::TreeNode(ICON_FA_HAND_BACK_FIST " Gravity Component");
+
+		DrawOptionsPopup<Gravity>(gravity);
+
+		if (opened)
+		{
+			ImGui::DragFloat("Value", &gravity.value);
+			//ImGui::Checkbox("Dragging", &draggable.dragging);
+			//EditorDraw::Vec3Control("Drag Offset", draggable.offset);
+
+			ImGui::TreePop();
+		}
+
+		DrawComponentEnd();
+	}
+
 	void InspectorPanel::DrawComponentStart()
 	{
 		ImGui::Spacing();
@@ -193,6 +216,7 @@ namespace Feather
 			DisplayAddComponentEntry<AtlasSpriteRenderer>("Renderer");
 			DisplayAddComponentEntry<AreaComponent>("Area");
 			DisplayAddComponentEntry<Draggable>("Draggable");
+			DisplayAddComponentEntry<Gravity>("Gravity");
 
 			// can't add empty components! entt won't allow it!
 			//DisplayAddComponentEntry<JoystickComponent>("Joystick");

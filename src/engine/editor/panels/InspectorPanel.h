@@ -11,6 +11,7 @@ class TransformComponent;
 class AreaComponent;
 class AtlasSpriteRenderer;
 class Draggable;
+class Gravity;
 
 #include <entt/entt.hpp>
 
@@ -27,6 +28,7 @@ namespace Feather
 		void DrawAreaComponent(AreaComponent& area);
 		void DrawDraggableComponent(Draggable& draggable);
 		void DrawRendererComponent(AtlasSpriteRenderer& renderer);
+		void DrawGravityComponent(Gravity& gravity);
 
 		void DrawComponentStart();
 		void DrawComponentEnd();
