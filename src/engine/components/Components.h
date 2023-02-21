@@ -5,6 +5,14 @@
 #ifndef FEATHER_COMPONENTS_H
 #define FEATHER_COMPONENTS_H
 
+// REVIEW: Do we need to import all of this ahead of time? There's a better way to do this?
+#include <glm/glm.hpp>
+#include "../rendering/shapes/Shape.h"
+#include "../common/structs.h"
+#include "../common/Color.h"
+#include "../entities/ECS.h"
+#include "../input/Input.h"
+
 // REVIEW: Surround components with Feather namespace?
 using namespace Feather;
 
@@ -37,6 +45,7 @@ struct SpriteRendererComponent
 // [future use] empty tag for entities that are controlled by the player with the joystick
 struct JoystickComponent
 {
+	Keys keyUp;
 };
 
 // [future use] empty tag for entities that are controlled by an AI (like in a cutscene, for example)

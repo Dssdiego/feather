@@ -7,13 +7,6 @@
 #include <imgui.h>
 #include <imgui/IconsFontAwesome6.h>
 
-// FIXME: all of this is required to be included before including the "Components.h" header
-#include <glm/glm.hpp>
-#include "../../rendering/shapes/Shape.h"
-#include "../../common/structs.h"
-#include "../../common/Color.h"
-#include "../../entities/ECS.h"
-// all... END
 #include "../../components/Components.h"
 
 #include "../EditorDraw.h"
@@ -178,7 +171,7 @@ namespace Feather
 	{
 		DrawComponentStart();
 
-		auto opened = ImGui::TreeNode(ICON_FA_HAND_BACK_FIST " Gravity Component");
+		auto opened = ImGui::TreeNode(ICON_FA_ANGLES_DOWN " Gravity Component");
 
 		DrawOptionsPopup<GravityComponent>(gravity);
 
