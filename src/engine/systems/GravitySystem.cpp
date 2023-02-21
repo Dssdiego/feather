@@ -4,7 +4,7 @@
 
 #include "GravitySystem.h"
 
-#include "../../src/engine/components/Components.h"
+#include "../components/Components.h"
 
 void GravitySystem::Update()
 {

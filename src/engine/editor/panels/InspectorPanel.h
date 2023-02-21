@@ -5,13 +5,16 @@
 #ifndef FEATHER_INSPECTOR_PANEL_H
 #define FEATHER_INSPECTOR_PANEL_H
 
-// ecs components
+// ECS components
 class IdentityComponent;
 class TransformComponent;
 class AreaComponent;
 class SpriteRendererComponent;
 class DraggableComponent;
 class GravityComponent;
+class JoystickComponent;
+class AIComponent;
+class CutsceneComponent;
 
 #include <entt/entt.hpp>
 
@@ -29,6 +32,9 @@ namespace Feather
 		void DrawDraggableComponent(DraggableComponent& draggable);
 		void DrawRendererComponent(SpriteRendererComponent& renderer);
 		void DrawGravityComponent(GravityComponent& gravity);
+		void DrawJoystickComponent(JoystickComponent& joystick);
+		void DrawAIComponent(AIComponent& ai);
+		void DrawCutsceneComponent(CutsceneComponent& cutscene);
 
 		void DrawComponentStart();
 		void DrawComponentEnd();

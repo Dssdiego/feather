@@ -31,7 +31,11 @@ namespace Feather
 			auto area = registry->try_get<AreaComponent>(selectedEntity);
 			auto draggable = registry->try_get<DraggableComponent>(selectedEntity);
 			auto gravity = registry->try_get<GravityComponent>(selectedEntity);
+			auto joystick = registry->try_get<JoystickComponent>(selectedEntity);
+			auto ai = registry->try_get<AIComponent>(selectedEntity);
+			auto cutscene = registry->try_get<CutsceneComponent>(selectedEntity);
 
+			// TODO: Make this better/automatic
 			if (identity != nullptr)
 				DrawIdentityComponent(*identity);
 			if (transform != nullptr)
@@ -44,6 +48,12 @@ namespace Feather
 				DrawDraggableComponent(*draggable);
 			if (gravity != nullptr)
 				DrawGravityComponent(*gravity);
+			if (joystick != nullptr)
+				DrawJoystickComponent(*joystick);
+			if (ai != nullptr)
+				DrawAIComponent(*ai);
+			if (cutscene != nullptr)
+				DrawCutsceneComponent(*cutscene);
 
 			if (EditorDraw::AlignedButton(ICON_FA_CIRCLE_PLUS " Add Component"))
 				ImGui::OpenPopup("AddComponent");
@@ -187,6 +197,66 @@ namespace Feather
 		DrawComponentEnd();
 	}
 
+	void InspectorPanel::DrawJoystickComponent(JoystickComponent& joystick)
+	{
+		DrawComponentStart();
+
+		auto opened = ImGui::TreeNode(ICON_FA_GAMEPAD " Joystick Component");
+
+		DrawOptionsPopup<JoystickComponent>(joystick);
+
+		if (opened)
+		{
+			//ImGui::DragFloat("Value", &gravity.value);
+			//ImGui::Checkbox("Dragging", &draggable.dragging);
+			//EditorDraw::Vec3Control("Drag Offset", draggable.offset);
+
+			ImGui::TreePop();
+		}
+
+		DrawComponentEnd();
+	}
+
+	void InspectorPanel::DrawAIComponent(AIComponent& ai)
+	{
+		DrawComponentStart();
+
+		auto opened = ImGui::TreeNode(ICON_FA_BRAIN " AI Component");
+
+		DrawOptionsPopup<AIComponent>(ai);
+
+		if (opened)
+		{
+			//ImGui::DragFloat("Value", &gravity.value);
+			//ImGui::Checkbox("Dragging", &draggable.dragging);
+			//EditorDraw::Vec3Control("Drag Offset", draggable.offset);
+
+			ImGui::TreePop();
+		}
+
+		DrawComponentEnd();
+	}
+
+	void InspectorPanel::DrawCutsceneComponent(CutsceneComponent& cutscene)
+	{
+		DrawComponentStart();
+
+		auto opened = ImGui::TreeNode(ICON_FA_CLAPPERBOARD " Cutscene Component");
+
+		DrawOptionsPopup<CutsceneComponent>(cutscene);
+
+		if (opened)
+		{
+			//ImGui::DragFloat("Value", &gravity.value);
+			//ImGui::Checkbox("Dragging", &draggable.dragging);
+			//EditorDraw::Vec3Control("Drag Offset", draggable.offset);
+
+			ImGui::TreePop();
+		}
+
+		DrawComponentEnd();
+	}
+
 	void InspectorPanel::DrawComponentStart()
 	{
 		ImGui::Spacing();
@@ -210,10 +280,12 @@ namespace Feather
 			DisplayAddComponentEntry<AreaComponent>("Area");
 			DisplayAddComponentEntry<DraggableComponent>("Draggable");
 			DisplayAddComponentEntry<GravityComponent>("Gravity");
+			DisplayAddComponentEntry<JoystickComponent>("Joystick");
+			DisplayAddComponentEntry<AIComponent>("AI");
+			DisplayAddComponentEntry<CutsceneComponent>("Cutscene");
+			//DisplayAddComponentEntry<CollisionComponent>("Collision");
 
-			// can't add empty components! entt won't allow it!
-			//DisplayAddComponentEntry<JoystickComponent>("Joystick");
-			//DisplayAddComponentEntry<AIComponent>("AI");
+			// NOTE: Can't add empty components! entt won't allow it!
 
 			ImGui::EndPopup();
 		}

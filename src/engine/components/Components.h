@@ -41,18 +41,23 @@ struct SpriteRendererComponent
 	bool visible = true;
 };
 
-
-// [future use] empty tag for entities that are controlled by the player with the joystick
+// tag for entities that are controlled by the player with the joystick
 struct JoystickComponent
 {
-	Keys keyUp;
+	uint32_t nothing = 0;
 };
 
-// [future use] empty tag for entities that are controlled by an AI (like in a cutscene, for example)
-struct AIComponent { };
+// tag for entities that are controlled by an AI (like in a cutscene, for example)
+struct AIComponent 
+{
+	uint32_t nothing = 0;
+};
 
-// [future use] empty tag for entities that are controlled by a cutscene
-struct CutsceneComponent { };
+// empty tag for entities that are controlled by a cutscene
+struct CutsceneComponent 
+{
+	uint32_t nothing = 0;
+};
 
 // entt tag for area component
 struct AreaComponent
