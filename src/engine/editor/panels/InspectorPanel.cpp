@@ -6,10 +6,7 @@
 
 #include <imgui.h>
 #include <imgui/IconsFontAwesome6.h>
-
-#include "../../components/Components.h"
-
-#include "../EditorDraw.h"
+#include "../../../../game/src/editor/GameInspectorPanel.h"
 
 namespace Feather
 {
@@ -54,6 +51,8 @@ namespace Feather
 				DrawAIComponent(*ai);
 			if (cutscene != nullptr)
 				DrawCutsceneComponent(*cutscene);
+
+			GameInspectorPanel::DrawComponents();
 
 			if (EditorDraw::AlignedButton(ICON_FA_CIRCLE_PLUS " Add Component"))
 				ImGui::OpenPopup("AddComponent");
@@ -274,41 +273,47 @@ namespace Feather
 	{
 		if (ImGui::BeginPopup("AddComponent"))
 		{
-			DisplayAddComponentEntry<IdentityComponent>("Identity");
-			DisplayAddComponentEntry<TransformComponent>("Transform");
-			DisplayAddComponentEntry<SpriteRendererComponent>("Renderer");
-			DisplayAddComponentEntry<AreaComponent>("Area");
-			DisplayAddComponentEntry<DraggableComponent>("Draggable");
-			DisplayAddComponentEntry<GravityComponent>("Gravity");
-			DisplayAddComponentEntry<JoystickComponent>("Joystick");
-			DisplayAddComponentEntry<AIComponent>("AI");
-			DisplayAddComponentEntry<CutsceneComponent>("Cutscene");
+			ImGui::Text("Engine:");
+
+			DisplayAddComponentEntry<IdentityComponent>(ICON_FA_TAG "  Identity");
+			DisplayAddComponentEntry<TransformComponent>(ICON_FA_ARROWS_UP_DOWN_LEFT_RIGHT "  Transform");
+			DisplayAddComponentEntry<SpriteRendererComponent>(ICON_FA_IMAGE "  Renderer");
+			DisplayAddComponentEntry<AreaComponent>(ICON_FA_TABLE_CELLS "  Area");
+			DisplayAddComponentEntry<DraggableComponent>(ICON_FA_HAND_BACK_FIST "  Draggable");
+			DisplayAddComponentEntry<GravityComponent>(ICON_FA_ANGLES_DOWN "  Gravity");
+			DisplayAddComponentEntry<JoystickComponent>(ICON_FA_GAMEPAD "  Joystick");
+			DisplayAddComponentEntry<AIComponent>(ICON_FA_BRAIN "  AI");
+			DisplayAddComponentEntry<CutsceneComponent>(ICON_FA_CLAPPERBOARD "  Cutscene");
 			//DisplayAddComponentEntry<CollisionComponent>("Collision");
 
+			ImGui::Separator();
+			ImGui::Spacing();
+
+			GameInspectorPanel::DrawAddComponentPopup();
 			// NOTE: Can't add empty components! entt won't allow it!
 
 			ImGui::EndPopup();
 		}
 	}
 
-	template<typename T>
-	void InspectorPanel::DisplayAddComponentEntry(const std::string& entryName)
-	{
-		auto registry = ECS::GetRegistry();
-		auto comp = registry->try_get<T>(currentEntity);
+	//template<typename T>
+	//void InspectorPanel::DisplayAddComponentEntry(const std::string& entryName)
+	//{
+	//	auto registry = ECS::GetRegistry();
+	//	auto comp = registry->try_get<T>(currentEntity);
 
-		// if we don't have the component, we show the menu to be able to add it to the entity
-		if (comp == nullptr)
-		{
-			if (ImGui::MenuItem(entryName.c_str()))
-			{
-				T newComp = T();
+	//	// if we don't have the component, we show the menu to be able to add it to the entity
+	//	if (comp == nullptr)
+	//	{
+	//		if (ImGui::MenuItem(entryName.c_str()))
+	//		{
+	//			T newComp = T();
 
-				ECS::AddComponent<T>(currentEntity, newComp);
-				ImGui::CloseCurrentPopup();
-			}
-		}
-	}
+	//			ECS::AddComponent<T>(currentEntity, newComp);
+	//			ImGui::CloseCurrentPopup();
+	//		}
+	//	}
+	//}
 
 	template<typename T>
 	void InspectorPanel::DrawOptionsPopup(T t)
