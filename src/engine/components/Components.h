@@ -44,6 +44,7 @@ struct SpriteRendererComponent
 // tag for entities that are controlled by the player with the joystick
 struct JoystickComponent
 {
+	float moveSpeed = 1.f;
 	uint32_t nothing = 0;
 };
 
