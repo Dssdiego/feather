@@ -28,19 +28,19 @@ namespace Feather
 	{
 		if (HasControl())
 		{
-			cameraMoveSpeed = Input::IsKeyboardKeyPressed(Keys::LEFT_SHIFT) ? cameraSpeedAccelerated : cameraSpeedBase;
+			cameraMoveSpeed = Input::GetKeyboardKeyHold(Keys::LEFT_SHIFT) ? cameraSpeedAccelerated : cameraSpeedBase;
 			cameraZoomSpeed = cameraMoveSpeed;
 
-			if (Input::IsKeyboardKeyPressed(Keys::W))
+			if (Input::GetKeyboardKeyHold(Keys::W))
 				MoveUp();
 
-			if (Input::IsKeyboardKeyPressed(Keys::A))
+			if (Input::GetKeyboardKeyHold(Keys::A))
 				MoveLeft();
 
-			if (Input::IsKeyboardKeyPressed(Keys::S))
+			if (Input::GetKeyboardKeyHold(Keys::S))
 				MoveDown();
 
-			if (Input::IsKeyboardKeyPressed(Keys::D))
+			if (Input::GetKeyboardKeyHold(Keys::D))
 				MoveRight();
 		}
 	}

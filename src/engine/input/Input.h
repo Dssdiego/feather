@@ -238,8 +238,12 @@ namespace Feather
 		static void Update();
 		static void Shutdown();
 
+		static bool GetKeyboardKeyDown(Keys key);
+		static bool GetKeyboardKeyUp(Keys key);
+		static bool GetKeyboardKeyHold(Keys key);
+
 		static bool IsJoystickButtonPressed(JoystickButton joyButton);
-		static bool IsKeyboardKeyPressed(Keys key);
+
 		static bool IsMouseButtonPressed(MouseButton mouseButton);
 		static bool IsMouseButtonReleased(MouseButton mouseButton);
 
@@ -253,7 +257,7 @@ namespace Feather
 		// REVIEW: GLFW supports the maximum of 16 joysticks (perhaps we define this in a enum?)
 		inline static std::vector<uint32_t> joysticks = {};
 
-		inline static bool keyboardKeys[512]; // FIXME: Get this number dynamically
+		inline static int keyboardKeys[512]; // FIXME: Get this number dynamically
 		inline static bool mouseButtons[8]; // FIXME: Get this number dynamically
 
 		inline static glm::vec2 mousePosition = glm::vec2(0, 0);

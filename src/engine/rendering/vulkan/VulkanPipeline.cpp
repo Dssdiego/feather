@@ -27,13 +27,13 @@ namespace Feather
 
 	void VulkanPipeline::Update()
 	{
-		if (Input::IsKeyboardKeyPressed(Keys::F1))
+		if (Input::GetKeyboardKeyDown(Keys::F1))
 			SwitchToPipeline("grayscale");
 
-		if (Input::IsKeyboardKeyPressed(Keys::F2))
+		if (Input::GetKeyboardKeyDown(Keys::F2))
 			SwitchToPipeline("sprite");
 
-		if (Input::IsKeyboardKeyPressed(Keys::F3))
+		if (Input::GetKeyboardKeyDown(Keys::F3))
 			SwitchToPipeline("bounds");
 	}
 

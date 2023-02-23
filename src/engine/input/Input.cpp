@@ -14,17 +14,11 @@ namespace Feather
 
 	void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
 	{
-		std::stringstream ss;
-		ss << "[Key callback] " << "KEY: " << key << " | SCANCODE: " << scancode << " | ACTION: " << action << " | MODS: " << mods;
+		//std::stringstream ss;
+		//ss << "[Key callback] " << "KEY: " << key << " | SCANCODE: " << scancode << " | ACTION: " << action << " | MODS: " << mods;
 		//    Logger::Info(ss.str());
 
-		if (action == GLFW_PRESS || action == GLFW_RELEASE)
-			Input::keyboardKeys[key] = action;
-
-		// TODO: Get also GLFW_REPEAT
-
-	//    if (key == GLFW_KEY_E && action == GLFW_PRESS)
-	//        activate_airship();
+		Input::keyboardKeys[key] = action;
 	}
 
 	void MouseButtonCallback(GLFWwindow* window, int button, int action, int mods)
@@ -208,9 +202,20 @@ namespace Feather
 	// Keyboard
 	//
 
-	bool Input::IsKeyboardKeyPressed(Keys key)
+	bool Input::GetKeyboardKeyDown(Keys key)
 	{
-		return keyboardKeys[key];
+		return keyboardKeys[key] == GLFW_PRESS;
+	}
+
+	// FIXME: Not working. This is the default value so it inputs this ALL THE TIME!
+	bool Input::GetKeyboardKeyUp(Keys key)
+	{
+		return keyboardKeys[key] == GLFW_RELEASE;
+	}
+
+	bool Input::GetKeyboardKeyHold(Keys key)
+	{
+		return keyboardKeys[key] == GLFW_PRESS || keyboardKeys[key] == GLFW_REPEAT;
 	}
 
 	//
