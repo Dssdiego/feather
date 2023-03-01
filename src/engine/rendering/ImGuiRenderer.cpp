@@ -4,8 +4,8 @@
 
 #include "ImGuiRenderer.h"
 #include "../input/Input.h"
-#include "../animation/tweening/Tweener.h"
-#include <tweeny/tweeny.h>
+//#include "../animation/tweening/Tweener.h"
+//#include <tweeny/tweeny.h>
 #include <imgui/IconsFontAwesome6.h>
 #include "Samplers.h"
 #include "../entities/ECS.h"
@@ -468,8 +468,8 @@ namespace Feather
 			if (showWindowPanel)
 				DrawWindowPanel();
 
-			if (showTweenPanel)
-				tweenPanel.Draw();
+			//if (showTweenPanel)
+			//	tweenPanel.Draw();
 
 			if (showViewportPanel)
 				viewportPanel.Draw();

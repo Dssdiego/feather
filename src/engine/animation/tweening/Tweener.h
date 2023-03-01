@@ -4,7 +4,7 @@
 
 #include "../../core/Time.h"
 #include <vector>
-#include <tweeny/tweeny.h>
+//#include <tweeny/tweeny.h>
 
 #ifndef FEATHER_TWEENER_H
 #define FEATHER_TWEENER_H
@@ -14,11 +14,11 @@ namespace Feather
 	class Tweener
 	{
 	public:
-		static void AddTween(tweeny::tween<float> tween);
-		static void Update();
+		//static void AddTween(tweeny::tween<float> tween);
+		//static void Update();
 
 	private:
-		inline static std::vector<tweeny::tween<float>> tweens{};
+		//inline static std::vector<tweeny::tween<float>> tweens{};
 	};
 }
 

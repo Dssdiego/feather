@@ -6,7 +6,7 @@
 
 #include <imgui.h>
 #include <imgui/IconsFontAwesome6.h>
-#include <tweeny/tweeny.h>
+//#include <tweeny/tweeny.h>
 #include "../../animation/tweening/Tweener.h"
 
 namespace Feather
@@ -20,14 +20,14 @@ namespace Feather
 
 		if (ImGui::Button("Execute"))
 		{
-			auto tween = tweeny::from(tweenFromTo.x).to(tweenFromTo.y).during(tweenDuration);
+			//auto tween = tweeny::from(tweenFromTo.x).to(tweenFromTo.y).during(tweenDuration);
 			//while (tween.progress() < 1) {
 			//    tween.step((float) Time::Delta);
 			//    std::cout << tween.progress() << std::endl;
 			//    //std::cout << tween.peek() << std::endl;
 			//}
 			//Tween tween = Tween(tweenFromTo.x, tweenFromTo.y, tweenDuration, TweenEasing::IN_OUT, TweenEquation::LINEAR);
-			Tweener::AddTween(tween);
+			//Tweener::AddTween(tween);
 			//tween.Execute();
 			//auto cards = Solitaire::GetCards();
 			//cards[0].MoveAnimate();

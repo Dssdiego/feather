@@ -70,7 +70,7 @@ namespace Feather
 			ECS::Update();
 
 			// Updates
-			Tweener::Update();
+			//Tweener::Update();
 			Window::Update();
 			Mouse::Update();
 			VulkanPipeline::Update();
