@@ -14,6 +14,7 @@
 
 // game systems
 #include "../../../game/src/systems/GameSystems.h"
+#include "../systems/CollisionSystem.h"
 
 namespace Feather
 {
@@ -21,10 +22,17 @@ namespace Feather
 	{
 		// start with an empty entity
 		ECS::Create();
+
+		// initializing systems
+		CollisionSystem::Init();
 	}
 
 	void ECS::Shutdown()
 	{
+		// shutting down systems
+		CollisionSystem::Shutdown();
+
+		// destroying all entities
 		DestroyAll();
 	}
 
@@ -79,10 +87,13 @@ namespace Feather
 
 	void ECS::Update()
 	{
+		// updating engine systems
 		AreaSystem::Update();
 		DragSystem::Update();
 		GravitySystem::Update();
+		CollisionSystem::Update();
 
+		// updating game systems
 		GameSystems::Update();
 	}
 }

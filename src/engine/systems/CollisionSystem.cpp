@@ -4,12 +4,21 @@
 
 #include "CollisionSystem.h"
 
+void CollisionSystem::Init()
+{
+	auto windowSize = Window::GetSize();
+	quadtree = QuadTree(0, Rect(0, 0, windowSize.width, windowSize.height));
+}
+
 void CollisionSystem::Update()
 {
-	/*auto view = ECS::GetRegistry()->view<const AreaComponent>();
-	view.each([](const auto& area)
-		{
-		});*/
+	quadtree.Update();
+
+}
+
+void CollisionSystem::Shutdown()
+{
+	// TODO: Implement
 }
 
 bool CollisionSystem::CheckCollision(AreaComponent a1, AreaComponent a2)

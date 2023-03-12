@@ -10,6 +10,10 @@
 #include <vector>
 #include "../common/structs.h"
 #include "../common/Rect.h"
+#include "../components/Components.h"
+
+#define MAX_ENTITIES 10		// How many objects a node can hold before it splits
+#define MAX_LEVELS 5		// Deepest level subnode
 
 namespace Feather
 {
@@ -19,24 +23,24 @@ namespace Feather
 		QuadTree();
 		QuadTree(uint32_t level, Rect bounds);
 
-		uint32_t GetIndex(Rect rect);
+		void Update();
 
-		void Clear();
-		void Split();
-		void Insert();
+		//uint32_t GetIndex(Rect rect);
 
-		std::vector<entt::entity> Retrieve();
+		//void Split();
+		//void Insert();
+
+		//std::vector<entt::entity> Retrieve();
 
 	private:
-		uint32_t mMaxObjects = 10; // How many objects a node can hold before it splits
-		uint32_t mMaxLevels = 5;   // Deepest level subnode
-
-		uint32_t mLevel = 0;	   // Current node level (0 being the topmost node)
+		uint32_t mLevel; // Current node level (0 being the topmost node)
 
 		std::vector<entt::entity> mEntities{};
-		std::vector<QuadTree> mNodes{4};
+		std::vector<QuadTree> mNodes{};
 
 		Rect mBounds;
+
+		void Clear();
 	};
 }
 

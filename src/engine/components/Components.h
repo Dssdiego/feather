@@ -16,7 +16,7 @@
 // REVIEW: Surround components with Feather namespace?
 using namespace Feather;
 
-// entt tag to identity objects in the game
+// entt tag to identity entities in the game
 struct IdentityComponent
 {
 	std::string id = "";
@@ -66,19 +66,20 @@ struct AreaComponent
 	glm::vec3 max = { 0.f, 0.f, 0.f };
 };
 
-// entt tag for draggable objects
+// entt tag for draggable entities
 struct DraggableComponent
 {
 	bool dragging = false;
 	glm::vec3 offset = { 0.f, 0.f, 0.f };
 };
 
-// entt tag for object with gravity
+// entt tag for entities with gravity
 struct GravityComponent 
 {
 	float value = 1.f;
 };
 
+// entt tag for entities that have collision
 struct CollisionComponent
 {
 	float size = 1.f;
