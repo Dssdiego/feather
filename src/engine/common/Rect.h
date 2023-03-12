@@ -26,6 +26,7 @@ namespace Feather
 		glm::vec2 GetSize() { return glm::vec2(mWidth, mHeight); }
 
 		static bool IsInside(Rect& r1, Rect& r2);
+		static bool IsEqual(Rect& r1, Rect& r2);
 		static bool IsIntersecting(Rect& r1, Rect& r2); // AABB collision detection (two axes: x/y)
 	
 	private:

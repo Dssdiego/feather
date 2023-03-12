@@ -53,9 +53,19 @@ TEST(RectGroup, Rect_Inside)
 {
     Rect r1 = Rect(glm::vec2(0.5f, 0.5f), 2.f, 2.f);
     Rect r2 = Rect(glm::vec2(0.f, 0.f), 3.f, 3.f);
+    Rect r3 = Rect(glm::vec2(0.f, 0.f), 3.f, 3.f);
 
     CHECK_EQUAL(Rect::IsInside(r1, r2), true);
     CHECK_EQUAL(Rect::IsInside(r2, r1), false);
+    CHECK_EQUAL(Rect::IsInside(r3, r2), false);
+}
+
+TEST(RectGroup, Rect_Equal)
+{
+    Rect r1 = Rect(glm::vec2(0.f, 0.f), 3.f, 3.f);
+    Rect r2 = Rect(glm::vec2(0.f, 0.f), 3.f, 3.f);
+
+    CHECK_EQUAL(Rect::IsEqual(r1, r2), true);
 }
 
 TEST(RectGroup, Rect_Intersecting_False)
@@ -64,4 +74,14 @@ TEST(RectGroup, Rect_Intersecting_False)
     Rect r2 = Rect(glm::vec2(3.f, 3.f), 1.f, 1.f);
 
     CHECK_EQUAL(Rect::IsIntersecting(r1, r2), false);
+}
+
+TEST(RectGroup, Rect_Intersecting_True)
+{
+    Rect r1 = Rect(glm::vec2(0.f, 0.f), 1.f, 1.f);
+    Rect r2 = Rect(glm::vec2(0.5f, 0.5f), 1.f, 1.f);
+    Rect r3 = Rect(glm::vec2(0.f, 0.f), 3.f, 3.f);
+
+    CHECK_EQUAL(Rect::IsIntersecting(r1, r2), true);
+    CHECK_EQUAL(Rect::IsIntersecting(r1, r3), true);
 }
