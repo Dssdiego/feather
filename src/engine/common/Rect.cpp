@@ -38,7 +38,7 @@ namespace Feather
 	// AABB collision detection (two axes: x/y)
 	bool Rect::IsIntersecting(Rect& r1, Rect& r2)
 	{
-		return r1.GetSize().x > r2.GetOrigin().x && r1.GetOrigin().x < r2.GetSize().x &&
-			   r1.GetSize().y > r2.GetOrigin().y && r1.GetOrigin().y < r2.GetSize().y;
+		return r1.mOrigin.x + r1.GetSize().x > r2.GetOrigin().x && r1.GetOrigin().x < r2.mOrigin.x + r2.GetSize().x &&
+			   r1.mOrigin.y + r1.GetSize().y > r2.GetOrigin().y && r1.GetOrigin().y < r2.mOrigin.y + r2.GetSize().y;
 	}
 }

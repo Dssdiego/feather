@@ -29,7 +29,7 @@ namespace Feather
 		void Update();
 
 	private:
-		static constexpr auto Threshold = std::size_t(16);  // Maximum number of values a node can contain before we try to split it
+		static constexpr auto Threshold = std::size_t(16);  // Maximum number of entities a node can contain before we try to split it
 		static constexpr auto MaxDepth = std::size_t(8);	// Maximum depth of a node. We stop trying to split nodes which are at MaxDepth because it can hurt performance if we subdivide too much
 
 		std::unique_ptr<Node> mRoot;

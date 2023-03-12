@@ -35,10 +35,13 @@ TEST(RectGroup, Rect_GetOrigin)
 
 TEST(RectGroup, Rect_GetCenter)
 {
-    Rect r = Rect(0.f, 0.f, 3.f, 7.f);
+    Rect r1 = Rect(0.f, 0.f, 3.f, 7.f);
+    Rect r2 = Rect(2.5f, 2.5f, 4.f, 4.f);
 
-    CHECK_EQUAL(r.GetCenter().x, 1.5f);
-    CHECK_EQUAL(r.GetCenter().y, 3.5f);
+    CHECK_EQUAL(r1.GetCenter().x, 1.5f);
+    CHECK_EQUAL(r1.GetCenter().y, 3.5f);
+    CHECK_EQUAL(r2.GetCenter().x, 4.5f);
+    CHECK_EQUAL(r2.GetCenter().y, 4.5f);
 }
 
 TEST(RectGroup, Rect_GetSize)
@@ -68,20 +71,28 @@ TEST(RectGroup, Rect_Equal)
     CHECK_EQUAL(Rect::IsEqual(r1, r2), true);
 }
 
-TEST(RectGroup, Rect_Intersecting_False)
-{
-    Rect r1 = Rect(glm::vec2(0.f, 0.f), 1.f, 1.f);
-    Rect r2 = Rect(glm::vec2(3.f, 3.f), 1.f, 1.f);
-
-    CHECK_EQUAL(Rect::IsIntersecting(r1, r2), false);
-}
-
-TEST(RectGroup, Rect_Intersecting_True)
+TEST(RectGroup, Rect_Intersection)
 {
     Rect r1 = Rect(glm::vec2(0.f, 0.f), 1.f, 1.f);
     Rect r2 = Rect(glm::vec2(0.5f, 0.5f), 1.f, 1.f);
     Rect r3 = Rect(glm::vec2(0.f, 0.f), 3.f, 3.f);
+    Rect r4 = Rect(glm::vec2(2.9f, 2.9f), 0.5f, 0.5f);
+    Rect r5 = Rect(glm::vec2(1.2f, 1.2f), 1.6f, 1.6f);
 
     CHECK_EQUAL(Rect::IsIntersecting(r1, r2), true);
     CHECK_EQUAL(Rect::IsIntersecting(r1, r3), true);
+    CHECK_EQUAL(Rect::IsIntersecting(r2, r3), true);
+    CHECK_EQUAL(Rect::IsIntersecting(r4, r3), true);
+    CHECK_EQUAL(Rect::IsIntersecting(r3, r1), true);
+    CHECK_EQUAL(Rect::IsIntersecting(r3, r2), true);
+    CHECK_EQUAL(Rect::IsIntersecting(r2, r5), true);
+    CHECK_EQUAL(Rect::IsIntersecting(r5, r2), true);
+    CHECK_EQUAL(Rect::IsIntersecting(r5, r3), true);
+
+    CHECK_EQUAL(Rect::IsIntersecting(r1, r4), false);
+    CHECK_EQUAL(Rect::IsIntersecting(r2, r4), false);
+    CHECK_EQUAL(Rect::IsIntersecting(r4, r2), false);
+    CHECK_EQUAL(Rect::IsIntersecting(r4, r1), false);
+    CHECK_EQUAL(Rect::IsIntersecting(r5, r1), false);
+    CHECK_EQUAL(Rect::IsIntersecting(r5, r4), false);
 }

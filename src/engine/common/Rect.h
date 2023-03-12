@@ -22,7 +22,6 @@ namespace Feather
 
 		glm::vec2 GetOrigin() { return mOrigin; }
 		glm::vec2 GetCenter() { return glm::vec2(mOrigin.x + mWidth / 2.f, mOrigin.y + mHeight / 2.f); }
-
 		glm::vec2 GetSize() { return glm::vec2(mWidth, mHeight); }
 
 		static bool IsInside(Rect& r1, Rect& r2);
