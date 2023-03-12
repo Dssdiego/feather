@@ -5,19 +5,7 @@
 #include <CommandLineTestRunner.h>
 #include <TestHarness.h>
 
-TEST_GROUP(FirstTestGroup)
-{
-};
-
-TEST(FirstTestGroup, FirstTest)
-{
-    CHECK_EQUAL(1, 1);
-}
-
-TEST(FirstTestGroup, SecondTest)
-{
-    STRCMP_EQUAL("hello", "hello");
-}
+#include "test_rect.h"
 
 int main(int ac, char** av)
 {

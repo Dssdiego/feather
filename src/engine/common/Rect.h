@@ -14,17 +14,22 @@ namespace Feather
 	{
 	public:
 		Rect();
-		Rect(uint32_t x, uint32_t y, uint32_t width, uint32_t height);
-		Rect(glm::vec2 origin, uint32_t width, uint32_t height);
+		Rect(float x, float y, float width, float height);
+		Rect(glm::vec2 origin, float width, float height, bool isCenter = false);
 
-		uint32_t GetWidth() { return mWidth; }
-		uint32_t GetHeight() { return mHeight; }
+		float GetWidth() { return mWidth; }
+		float GetHeight() { return mHeight; }
 
 		glm::vec2 GetOrigin() { return mOrigin; }
-		glm::vec2 GetCenter();
+		glm::vec2 GetCenter() { return glm::vec2(mOrigin.x + mWidth / 2.f, mOrigin.y + mHeight / 2.f); }
 
+		glm::vec2 GetSize() { return glm::vec2(mWidth, mHeight); }
+
+		static bool IsInside(Rect& r1, Rect& r2);
+		static bool IsIntersecting(Rect& r1, Rect& r2); // AABB collision detection (two axes: x/y)
+	
 	private:
-		glm::vec2 mOrigin = glm::vec2(0.f,0.f);
+		glm::vec2 mOrigin = glm::vec2(0.f, 0.f);
 
 		uint32_t mWidth = 0;
 		uint32_t mHeight = 0;
