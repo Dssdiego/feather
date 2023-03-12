@@ -19,7 +19,7 @@ public:
 private:
 	static bool CheckCollision(AreaComponent a1, AreaComponent a2);
 
-	inline static QuadTree quadtree = QuadTree(0, Rect(0,0,0,0));
+	inline static QuadTree quadtree = QuadTree();
 };
 
 #endif FEATHER_COLLISION_SYSTEM_H

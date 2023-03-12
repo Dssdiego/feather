@@ -6,19 +6,18 @@
 
 void CollisionSystem::Init()
 {
-	auto windowSize = Window::GetSize();
-	quadtree = QuadTree(0, Rect(0, 0, windowSize.width, windowSize.height));
+	//auto windowSize = Window::GetSize();
+	quadtree = QuadTree();
 }
 
 void CollisionSystem::Update()
 {
 	quadtree.Update();
-
 }
 
 void CollisionSystem::Shutdown()
 {
-	// TODO: Implement
+	// TODO: Implemen
 }
 
 bool CollisionSystem::CheckCollision(AreaComponent a1, AreaComponent a2)
