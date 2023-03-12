@@ -17,7 +17,7 @@ void CollisionSystem::Update()
 
 void CollisionSystem::Shutdown()
 {
-	// TODO: Implemen
+	// TODO: Implement
 }
 
 bool CollisionSystem::CheckCollision(AreaComponent a1, AreaComponent a2)

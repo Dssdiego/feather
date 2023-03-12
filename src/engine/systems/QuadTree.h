@@ -12,9 +12,6 @@
 #include "../common/Rect.h"
 #include "../components/Components.h"
 
-//#define MAX_ENTITIES 10		// How many objects a node can hold before it splits
-//#define MAX_LEVELS 5		// Deepest level subnode
-
 namespace Feather
 {
 	struct Node
