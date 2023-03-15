@@ -14,6 +14,7 @@
 #include "../entities/ECS.h"
 #include "../systems/SpriteRenderSystem.h"
 #include "../editor/Editor.h"
+#include "../audio/AudioEngine.h"
 
 namespace Feather
 {
@@ -34,6 +35,11 @@ namespace Feather
 		ImGuiRenderer::Init();
 		SpriteRenderSystem::Init();
 		ECS::Init();
+
+		miniAudio = MiniAudioBackend();
+		AudioEngine::SetupBackend(&miniAudio);
+		AudioEngine::Init();
+
 		//SpriteAnimator::Init();
 		//Steam::Init();
 		//NetClient::Init();
@@ -76,7 +82,7 @@ namespace Feather
 			VulkanPipeline::Update();
 			Camera::Update();
 			Input::Update();
-			//AudioEngine::Update();
+			AudioEngine::Update();
 
 			Draw();
 
@@ -110,6 +116,7 @@ namespace Feather
 	//    CGeforceNow::Shutdown();
 		//NetClient::Shutdown();
 		//Steam::Shutdown();
+		AudioEngine::Shutdown();
 		SpriteRenderSystem::Shutdown();
 		Editor::Shutdown();
 		ImGuiRenderer::Shutdown();
@@ -117,7 +124,6 @@ namespace Feather
 		ECS::Shutdown();
 		//    Renderer::Shutdown();
 		Input::Shutdown();
-		//AudioEngine::Shutdown();
 		Mouse::Shutdown();
 		Window::Shutdown();
 	}

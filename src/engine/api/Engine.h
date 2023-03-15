@@ -14,6 +14,7 @@
 #include "../rendering/vulkan/VulkanEngine.h"
 #include "../profiling/Logger.h"
 //#include "../sdks/GeforceNow.h"
+#include "../audio/backends/MiniAudioBackend.h"
 
 namespace Feather
 {
@@ -29,6 +30,8 @@ namespace Feather
 		size_t frames = 0;
 		int frameCount = 0;
 		double previousTime = glfwGetTime();
+
+		MiniAudioBackend miniAudio{};
 	};
 }
 
