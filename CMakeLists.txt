@@ -45,6 +45,7 @@ include_directories(
         thirdparty/entt/single_include
         thirdparty/glm
         thirdparty/json/single_include
+        thirdparty/miniaudio
         ${YAML_CPP_INCLUDE_DIR}
 )
 
