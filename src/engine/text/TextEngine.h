@@ -8,15 +8,19 @@
 #include <ft2build.h>
 #include FT_FREETYPE_H
 
+#include <string>
+
 namespace Feather
 {
 	class TextEngine
 	{
 	public:
 		static void Init();
+		static void LoadFont(const std::string& filePath);
 
 	private:
 		inline static FT_Library library{};
+		inline static FT_Face face{};
 	};
 }
 
