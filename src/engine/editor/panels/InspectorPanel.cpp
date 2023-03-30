@@ -73,10 +73,15 @@ namespace Feather
 	{
 		DrawComponentStart();
 
-		if (ImGui::TreeNodeEx(ICON_FA_TAG " Identity Component", ImGuiTreeNodeFlags_AllowItemOverlap))
+		auto opened = ImGui::TreeNodeEx(ICON_FA_TAG " Identity Component", ImGuiTreeNodeFlags_AllowItemOverlap);
+		
+		if (opened)
 		{
-			ImGui::Text(identity.id.c_str());
-			ImGui::Text(identity.name.c_str());
+			std::string idStr = "ID: " + identity.id;
+			std::string nameStr = "Name: " + identity.name;
+
+			ImGui::Text(idStr.c_str());
+			ImGui::Text(nameStr.c_str());
 
 			ImGui::TreePop();
 		}
