@@ -22,6 +22,15 @@ add_subdirectory(server)
 # Vulkan
 find_package(Vulkan REQUIRED)
 
+# FreeType
+## set(FREETYPE_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/thirdparty/freetype/")
+if(WIN32)
+    set(FREETYPE_LIBRARY 
+        "${CMAKE_SOURCE_DIR}/thirdparty/freetype/lib/freetype.lib"
+    )
+    file(COPY "${CMAKE_SOURCE_DIR}/thirdparty/freetype/lib/freetype.dll" DESTINATION ${CMAKE_BINARY_DIR})
+endif()
+
 # YAML-CPP
 set(YAML_CPP_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/thirdparty/yaml-cpp/inc")
 if(WIN32)
@@ -38,6 +47,7 @@ message("Libraries:")
 message(VULKAN_INCLUDE_DIRS: ${Vulkan_INCLUDE_DIRS})
 message(VULKAN_LIB: ${Vulkan_LIBRARIES})
 message(YAML_CPP_LIBRARY: ${YAML_CPP_LIBRARY})
+message(FREETYPE_LIBRARY: ${FREETYPE_LIBRARY})
 
 # include directories
 include_directories(
@@ -103,6 +113,7 @@ if(WIN32)
             ${CMAKE_SOURCE_DIR}/thirdparty/yojimbo/mbedcrypto.lib
             ${CMAKE_SOURCE_DIR}/thirdparty/yojimbo/sodium.lib
             ${YAML_CPP_LIBRARY}
+            ${FREETYPE_LIBRARY}
     )
 else()
     target_link_libraries(

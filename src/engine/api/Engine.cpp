@@ -15,6 +15,7 @@
 #include "../systems/SpriteRenderSystem.h"
 #include "../editor/Editor.h"
 #include "../audio/AudioEngine.h"
+#include "../text/TextEngine.h"
 
 namespace Feather
 {
@@ -39,6 +40,8 @@ namespace Feather
 		miniAudio = MiniAudioBackend();
 		AudioEngine::SetupBackend(&miniAudio);
 		AudioEngine::Init();
+
+		TextEngine::Init();
 
 		//SpriteAnimator::Init();
 		//Steam::Init();
